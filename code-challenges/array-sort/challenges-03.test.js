@@ -105,6 +105,8 @@ Write a function named sortPeopleBetter that takes in an array of Person objects
 If two people share the same last name, alphabetize on their first name.
 
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
+TODO: We learned here that the primary sorting criteria is going to end up at the end of your function, 
+TODO: ie: the most broad case (the 'else' case). The most speicfic situation will go at the top!
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
