@@ -9,7 +9,7 @@ For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
 const courseInfo = {
   name: 'Code 301',
-  duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+  duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -72,53 +72,87 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.forEach(person => houses.push(person.house));
   return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
+Write a function named hasChildrenValues that uses Object.values to determine if 
+any given character in the data set has children.
 
 This function should take in an array of data and a character name and return a Boolean.
 
 For example:
 hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
+
+TODO:cant find a good use for Objet.values. How should I do it? This seems to be a case where you want things to stay in Object form.
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let myCharacter = arr.find(person => person.name === character)
+  if (myCharacter) {
+    if (myCharacter.children.length !== 0) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 3, but uses the data's entries instead of its values.
+Write a function named hasChildrenEntries that is similar to your hasChildrenValues 
+function from challenge 3, but uses the data's entries instead of its values.
 
 The input and output of this function are the same as the input and output from challenge 3.
+ 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let myCharacter = arr.find(person => person.name === character);
+  if (!myCharacter) false;
+  const entries = Object.entries(myCharacter)
+  if (entries[2][1].length === 0) { return false } else { return true }
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
+Write a function named totalCharacters that takes
+ in an array and returns the number of characters 
+ in the array.
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
-};
+  let output = [];
+  arr.forEach(family => {
+    const famArr = Object.entries(family);
+    famArr.forEach(([name, val]) => {
+      if (val !== null && name !== 'house') {
+        if (typeof val === 'string') {
+          output.push(val);
+        } else if (val.length !== 0) {
+          output = output.concat(val);
+        }
+      }
+    })
+  })
+  return output.length;
+}
+//there is a better way!!!!!
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
-Write a function named houseSize that takes in the array of characters and creates an object for each house containing the name of the house and the number of members.
+Write a function named houseSize that takes in the array of characters and 
+creates an object for each house containing the name of the house and the 
+number of members.
 
 All of these objects should be added to an array named "sizes". Return the "sizes" array from the function.
 
@@ -127,20 +161,30 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  arr.forEach(house => {
+    let members = 1 + house.children.length;
+    if (house.spouse) members += 1;
+    sizes.push({
+      house: house.house,
+      members: members,
+    })
+  })
   return sizes;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
-
-As fans are well aware, "When you play the game of thrones, you win or you die. There is no middle ground."
+b
+As fans are well aware, "When you play the game of thrones, 
+you win or you die. There is no middle ground."
 
 We will assume that Alerie Tyrell is deceased. She missed her daughter's wedding. Twice.
 
-Write a function named houseSurvivors. You may modify your houseSize function from challenge 6 to use as the basis of this function.
+Write a function named houseSurvivors. You may modify your houseSize function from 
+challenge 6 to use as the basis of this function.
 
-This function should create an object for each house containing the name of the house and the number of members. If the spouse is deceased, do not include him/her in the total number of family members.
+This function should create an object for each house containing the name of the 
+house and the number of members. If the spouse is deceased, do not include him/her in the total number of family members.
 
 All of these objects should be added to an array named "survivors". Return the "survivors" array from the function.
 
@@ -151,7 +195,14 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  arr.forEach(house => {
+    let members = 1 + house.children.length;
+    if (house.spouse && !deceasedSpouses.find(slain => slain === house.spouse)) members += 1;
+    survivors.push({
+      house: house.house,
+      members: members,
+    })
+  })
   return survivors;
 };
 
