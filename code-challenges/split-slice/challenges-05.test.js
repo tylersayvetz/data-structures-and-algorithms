@@ -113,7 +113,10 @@ const stepActions = (recipe) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named removeEvenValues that, given an array of integers as input, deletes all even values from the array, leaving no 'gaps' behind.
+Write a function named removeEvenValues 
+that, given an array of integers as input, 
+deletes all even values from the array, 
+leaving no 'gaps' behind.
 
 The array should be modified in-place.
 
@@ -126,20 +129,10 @@ For example:
 const removeEvenValues = (arr) => {
   let i = 0;
   arr.forEach(el => {
-    if (el % 2 === 0) {i++}
+    if (el % 2 !== 0) {i++}
   })
-  arr.sort((a,b) => {
-    if (a % 2 === 0) {
-      return 1;
-    } else if ( b % 2 === 0) {
-      return -1;
-    }
-  })
-  for (let j = 0; j < i; j++) {
-    arr.pop();
-  }
-  return arr;
-
+  arr.sort((a) => a % 2 === 0 ? 1 : -1);
+  arr.length = i;
 };
 
 /* ------------------------------------------------------------------------------------------------
