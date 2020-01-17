@@ -9,7 +9,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce((counter) => { return ++counter }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,7 +36,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -69,7 +70,10 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((array, value) => {
+    array.push(value.name);
+    return array;
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +85,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  const arr = [...str];
+  return arr.reduce((string, char, index) => {
+    return string.concat(arr[arr.length - 1 - index]);
+  }, '')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,7 +141,9 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((counter, person) => {
+    return person.children ? counter + person.children.length : counter;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +155,12 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  const obj = arr.reduce((obj, num) => {
+    obj.sum += num;
+    ++obj.count;
+    return obj
+  }, { count: 0, sum: 0 })
+  return obj.sum / obj.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,7 +170,7 @@ Write a function named countPrimeNumbers that, given an array elements as input,
 
 You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
-
+//this works great for small numbers.
 const isPrime = (value) => {
   for (let i = 2; i < value; i++) {
     if (value % i === 0) {
@@ -167,7 +181,9 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((count, num) => {
+    return (isPrime(num)) ? ++count : count;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,7 +226,9 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((object, element) => {
+    return element.stat.name === statName ? object = element : object;
+  }, {})
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -224,16 +242,21 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(element => {
+    let regex = /[a]/;
+    return regex.test(element.name);
+  }).reduce((array, person) => {
+    return (person.children) ? array = array.concat(person.children) : array;
+  },[])
 };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
+ 
 All the code below will verify that your functions are working to solve the challenges.
-
+ 
 DO NOT CHANGE any of the below code.
-
+ 
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
@@ -245,7 +268,7 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return an array continaing the names of the characters', () => {
-    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData)).toStrictEqual(['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa']);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
@@ -264,7 +287,7 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should return the average of the numbers in the array', () => {
-    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85])).toStrictEqual(64);
   });
 });
 
@@ -282,7 +305,7 @@ describe('Testing challenge 7', () => {
 
 describe('Testing challenge 8', () => {
   test('It should return an array containing the names of the children', () => {
-    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+    expect(extractChildren(characters)).toStrictEqual(['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras']);
     expect(extractChildren(characters).length).toStrictEqual(10);
   });
 });
