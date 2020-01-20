@@ -7,9 +7,55 @@ Note: You might need to use the same method more than once.
 For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
+// const myFunc = function (target, input, sum) {
+
+//   //if the first lement is a number, add to the sum if it matches the target. Recurse passing in the next element.
+//   //else it must be an array, so recurse, passing intput[0] as the input.
+
+//   //if it matches, pass in the next number in the array.
+//   if (input[0] === target) {
+//     console.log(++sum);
+//     return myFunc(target, input[1], ++sum);
+
+//     //if its an int that doesnt match, pass in the next number in the array.
+//   } else if (typeof input[0] === 'number') {
+//     console.log(sum);
+//     return myFunc(target, input[1], sum);
+
+//     //if its an array, drill down...
+//   } else {
+//     console.log(sum);
+//     return myFunc(target, input[0], sum);
+//   }
+// }
+
+//   if (input.length === 0) { return sum }
+//   else if (typeof input[0] === 'object') {j
+//     return myFunc(target, input[0], sum);
+//   } else {
+//     console.log('got into next array');
+//     input.forEach(num => {
+//       if (num === target) {
+//         ++sum;
+//         console.log('added to sum');
+//       }
+//       console.log(sum);
+//     })
+//     return sum;
+//   }
+// }
+
 const count = (target, input) => {
-  // Solution code here...
+  let sum = 0;
+  input.forEach(element => {
+    element = element.filter(number => {
+      return number === target;
+    })
+    sum += element.length;
+  })
+  return sum
 };
+//so sad!! recursion is hard. This is a terrible solution that will only work with 2D arrays. And will break the input is a mixed bag. 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -19,7 +65,10 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  return input.reduce((sum, array) => {
+    array.forEach(num => sum += num);
+    return sum;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,10 +77,20 @@ Write a function named divisibleByFiveTwoToThePower that accepts an array of arr
 This function should first remove any elements that are not numbers or are not divisible by five.
 This function should then raise 2 to the power of the resulting numbers, returning an array of arrays.
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
+
+[[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]]
+
+[1, 2, 3], [5, 10, 15]
+
+[['one', 'two', 'five'], ['5', '10', '15'], [5]]
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.reduce((output, array) => {
+    let elementOut = array.filter(number => number % 5 === 0 && typeof number === 'number').map(el => 2 ** el);
+    output.push(elementOut);
+    return output;
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +153,7 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return data.filter(person => person.gender === 'male' || person.gender === 'female').map(person => person.name).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,9 +162,18 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  let result = data.reduce((acc, person) => {
+    if (acc.height > parseInt(person.height)) {
+      console.log('person is shorter',acc.height, person.height );
+      return { name: person.name, height: person.height }
+    } else {
+      console.log('previous person shorter', acc.height, person.height)
+      return acc;
+    }
+  }, { name: 'Tyler', height: 1000 })
+  return result.name;
 };
-
+//PARSE INT~~~!!
 /* ------------------------------------------------------------------------------------------------
 TESTS
 All the code below will verify that your functions are working to solve the challenges.
