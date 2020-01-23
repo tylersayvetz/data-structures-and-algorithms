@@ -21,7 +21,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  return arr.filter(string => string.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  return arr.map(number => number.replace(/\(|\)|\s|-/g, ''))
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return [...str].filter((char, i) => i % 2 !== 0).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +55,10 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, el) => {
+    if (!acc) return false
+    return el.includes(':)') ? true : false;
+  }, true)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +68,8 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  return arr.filter(string => string.includes(target));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,9 +77,21 @@ CHALLENGE 7
 
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
+/*
+takes an array
+returns a boolean.
+those are different, so Im thinking reduce.
+accumulator should be true
+loop should
+  check if its false ? if so return false
+  if not, test the element, return true or false.
 
+*/
 const findEvery = (arr, target) => {
-  // Solution code here...
+  return arr.reduce((acc, el) => {
+    if (!acc) return false
+    return el.includes(target) ? true : false;
+  }, true)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,9 +105,21 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
+/*
+takes an array
+returns an array
+thinking either map or filter... or both... 
+filter,, with reduce inside.
 
+
+*/
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, el) => {
+    const filtered = el.filter(person => !person.includes('Brook'));
+    acc.push(filtered)
+    return acc;
+
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,7 +176,7 @@ describe('Testing challenge 1', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
-    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
+    expect(firstLetters(words)).toStrictEqual(['a', 'b', 'c']);
     expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
     expect(firstLetters([])).toStrictEqual([]);
   });
