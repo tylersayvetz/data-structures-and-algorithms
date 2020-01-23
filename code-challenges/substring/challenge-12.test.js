@@ -3,154 +3,133 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
-You friend Pat has a chain of stores around the greater Seattle area. He specializes in selling salmon cookies. Pat has data for the hourly sales of cookies per hour for each store. He wants to create an array of the total number of cookies sold per hour for all of his stores combined.
+Write a function named firstLetters that takes in an array of strings and returns an array containing only the first letter of each string.
 
-Write a function named grandTotal that adds up the cookies sales for each hour of operation for all of the stores combined. For example, the first element in the hourlySales array should be the sum of the cookies sold in the 9:00 a.m. hour at all five stores combined.
-
-For this example, the total at 9:00 a.m. is 17 + 26 + 7 + 5 + 33, or 88 total cookies.
-
-Return the array of the total number of cookies sold per hour for all of the stores combined.
+For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
-const hoursOpen = ['9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', '8 p.m.'];
-
-const firstPike = [17, 18, 23, 24, 24, 12, 13, 27, 30, 20, 24, 18];
-const seaTac = [26, 5, 5, 59, 23, 39, 38, 20, 30, 7, 59, 43];
-const seattleCenter = [7, 14, 19, 22, 15, 4, 23, 27, 28, 23, 1, 29];
-const capHill = [5, 85, 58, 51, 50, 13, 33, 32, 47, 94, 31, 62];
-const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
-
-const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
-
-const grandTotal = (stores) => {
+const firstLetters = (arr) => {
   // Solution code here...
-
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Pat has decided that he would also like to organize his data as objects containing the number of cookies sold per hour and the time.
+Write a function named findHappiness that takes in an array of strings and returns an array containing only the strings from the input array that contain ":)".
 
-Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
-
-Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
+For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const salesData = (hours, data) => {
+const findHappiness = (arr) => {
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named howManyTreats that will return the quantity of treats you need to pick up from the pet store today from this array.
+Write a function named standardizePhoneNumbers that takes in an array of phone number strings in (XXX) XXX-XXXX format and returns an array with the phone number strings in XXXXXXXXXX format.
+
+For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const errands = [
-  { store: 'Grocery store',
-    items: [ { name: 'Eggs', quantity: 12 }, { name: 'Milk', quantity: 1 }, { name: 'Apples', quantity: 3 }]
-  },
-  { store: 'Drug store',
-    items: [ { name: 'Toothpaste', quantity: 1 }, { name: 'Toothbrush', quantity: 3 }, { name: 'Mouthwash',quantity: 1 } ]
-  },
-  { store: 'Pet store',
-    items: [ { name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 } ]
-  }
-];
-
-const howManyTreats = (arr) => {
+const standardizePhoneNumbers = (arr) => {
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named battleship that accepts a 2D array and two numbers: a row coordinate and a column coordinate.
+Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
-Return "hit" or "miss" depending on if there's part of a boat at that position in the array. Assume the array has only one of two values at each index. '#' for part of a boat, or ' ' for open water.
-
-Here is a sample board:
-[
-  ['#', ' ', '#', ' '],
-  ['#', ' ', '#', ' '],
-  ['#', ' ', ' ', ' '],
-  [' ', ' ', '#', '#'],
-]
-
-The top row of the board is considered row zero and row numbers increase as they go down.
+For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-const battleship = (board, row, col) => {
-  //  Solution code here...
+const onlyOddChars = (str) => {
+  // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named calculateProduct that takes in a two-dimensional array of numbers, multiplies all of the numbers in each array, and returns the final product. This function should work for any number of inner arrays.
-
-For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
+Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
+const allHappy = (arr) => {
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named averageDailyTemperature that accepts a two-dimensional array representing average daily temperatures grouped week-by-week.
-
-Calculate the average daily temperature during that entire period. Your output should be a single number. Write your function so it could accept an array with any number of weeks given to it.
+Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-// Real daily average temperatures for Seattle, October 1-28 2017
-const weeklyTemperatures = [
-  [66, 64, 58, 65, 71, 57, 60],
-  [57, 65, 65, 70, 72, 65, 51],
-  [55, 54, 60, 53, 59, 57, 61],
-  [65, 56, 55, 52, 55, 62, 57],
-];
-
-const averageDailyTemperature = (weather) => {
+const findAnything = (arr, target) => {
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
 
-Write a function named lowestWeeklyAverage that accepts a two-dimensional array of daily temperatures grouped week-by-week.
-
-Calculate the average temperature for each week and return the value of the lowest weekly average temperature.
-
-For example, in the data set below, the lowest weekly average is 46, which is the average of the temperatures in week 2. All other weeks have average temperatures that are greater than 46.
+Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
 
-let lowestWeeklyTemperatureData = [
-  [33, 64, 58, 65, 71, 57, 60],
-  [40, 45, 33, 53, 44, 59, 48],
-  [55, 54, 60, 53, 59, 57, 61],
-  [65, 56, 55, 52, 55, 62, 57],
-];
-
-const lowestWeeklyAverage = (weather) => {
+const findEvery = (arr, target) => {
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
 
-Write a function called excel that accepts a string representing rows and columns in a table.
+We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
 
-Rows are seperated by newline "\n" characters. Columns are seperated by commas. For example, '1,1,1\n4,4,4\n9,9,9' represents a 3x3 table.
+Write a function named unenrollBrook that takes in a two-dimensional array, where each array represents one course's roster and is an array of strings of the names of the people in that course.
 
-The function should parse the string as rows and columns and compute the sum of the values for each row. Return an array with the sum of the values in each row.
+Return a two-dimensional array with the same roster, but where anyone whose name includes Brook is removed from every course.
 
-For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
+For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const excel = (str) => {
+const unenrollBrook = (arr) => {
+  // Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 9 - Stretch Goal
+
+Write a function named sortByDay that takes in an array of strings, each of which represents an event's day and time.
+
+Return a two-dimensional array that organizes those strings based on the day on which they occur. For example, all events on Monday are in the first array, all events on Tuesday are in the second array, etc.
+
+If an event takes place on multiple days (i.e. "Dancing on Mondays and Tuesdays"), it should appear in both arrays.
+
+For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thursday'] returns
+[
+  ['Monday'],
+  ['Tuesday', 'Tuesday 2'],
+  ['Wednesday and Thursday'],
+  ['Wednesday and Thursday', 'Thursday'],
+  [],
+  [],
+  []
+]
+------------------------------------------------------------------------------------------------ */
+
+const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+const sortByDay = (arr) => {
+  // Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 10 - Stretch Goal
+
+Write a function named characterByIndex that takes in an array of strings and returns an array containing the first character of the first string, the second character of the second string, etc.
+
+For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
+------------------------------------------------------------------------------------------------ */
+
+const characterByIndex = (arr) => {
   // Solution code here...
 };
 
@@ -161,96 +140,126 @@ All the code below will verify that your functions are working to solve the chal
 
 DO NOT CHANGE any of the below code.
 
-Run your tests from the console: jest challenge-12.test.js
+Run your tests from the console: jest challenges-13.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-
 describe('Testing challenge 1', () => {
-  test('It should add the hourly totals array', () => {
-    expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
+  test('It should return the first letter of each element of the array', () => {
+    const words = ['apple', 'banana', 'cantaloupe'];
+
+    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
+    expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
+    expect(firstLetters([])).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 2', () => {
-  test('It should create an object of data for each store', () => {
-    expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
-      { sales: '88 cookies', time: '9 a.m.' },
-      { sales: '153 cookies', time: '10 a.m.' },
-      { sales: '252 cookies', time: '11 a.m.' },
-      { sales: '286 cookies', time: '12 p.m.' },
-      { sales: '139 cookies', time: '1 p.m.' },
-      { sales: '161 cookies', time: '2 p.m.' },
-      { sales: '145 cookies', time: '3 p.m.' },
-      { sales: '232 cookies', time: '4 p.m.' },
-      { sales: '276 cookies', time: '5 p.m.' },
-      { sales: '207 cookies', time: '6 p.m.' },
-      { sales: '161 cookies', time: '7 p.m.' },
-      { sales: '169 cookies', time: '8 p.m.' }
-    ]);
+  test('It should return only the strings that contain smiley faces', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
+    expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
+    expect(findHappiness([])).toStrictEqual([]);
+    expect(findHappiness(['sadness'])).toStrictEqual([]);
+    expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
   });
 });
 
-
 describe('Testing challenge 3', () => {
-  test('It should return the number 24', () => {
-    expect(howManyTreats(errands)).toStrictEqual(24);
+  test('It should return a standardized set of phone numbers', () => {
+    const nums = ['(123) 456-7890', '(222) 222-2222'];
+
+    expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
+    expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
   });
 });
 
 describe('Testing challenge 4', () => {
-  const battleshipData = [
-    ['#', ' ', '#', ' '],
-    ['#', ' ', '#', ' '],
-    ['#', ' ', ' ', ' '],
-    [' ', ' ', '#', '#'],
-  ];
-
-  test('It should return "hit" when it hits a boat', () => {
-    expect(battleship(battleshipData, 0, 0)).toStrictEqual('hit');
-    expect(battleship(battleshipData, 1, 0)).toStrictEqual('hit');
-  });
-
-  test('It should return "miss" when it doesn\'t hit a boat', () => {
-    expect(battleship(battleshipData, 0, 1)).toStrictEqual('miss');
-    expect(battleship(battleshipData, 3, 0)).toStrictEqual('miss');
+  test('It should only return the odd indexed characters from the string', () => {
+    expect(onlyOddChars('0123456789')).toStrictEqual('13579');
+    expect(onlyOddChars('abcd')).toStrictEqual('bd');
+    expect(onlyOddChars('a')).toStrictEqual('');
+    expect(onlyOddChars('')).toStrictEqual('');
   });
 });
 
 describe('Testing challenge 5', () => {
-  test('It should multiply all the numbers together', () => {
-    expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
-  });
+  test('It should correctly assess whether all the strings are happy', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-  test('It should return zero if there are any zeroes in the data', () => {
-    expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
-  });
-  test('It should work even if some of the arrays contain no numbers', () => {
-    expect(calculateProduct([[1,2], [], [3,4,5]])).toStrictEqual(120);
+    expect(allHappy(words)).toStrictEqual(false);
+    expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
+    expect(allHappy([])).toStrictEqual(true);
   });
 });
 
 describe('Testing challenge 6', () => {
-  test('It should calculate and return the average temperature of the data set', () => {
-    expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
+  test('It should find all the strings that contain a given string', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+
+    expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
+    expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
   });
 });
 
 describe('Testing challenge 7', () => {
-  test('It should return the lowest weekly average temperature within the data set', () => {
-    expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
-    expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
+  test('It should determine whether all the strings contain a given string', () => {
+    const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
+
+    expect(findEvery(words, 'a')).toStrictEqual(false);
+    expect(findEvery(words, '')).toStrictEqual(true);
+    expect(findEvery(words, 'i')).toStrictEqual(true);
   });
 });
 
 describe('Testing challenge 8', () => {
-  test('It should return the total count for each row', () => {
-    let result = excel('1,1,1\n4,4,4\n9,9,9');
-    expect(result.length).toStrictEqual(3);
-    expect(result[0]).toStrictEqual(3);
-    expect(result[1]).toStrictEqual(12);
-    expect(result[2]).toStrictEqual(27);
+  test('It should remove Brook from all courses', () => {
+    const roster = [
+      ['Michelle', 'Allie', 'Brook TESTING'],
+      ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+    ];
+
+    expect(unenrollBrook(roster)).toStrictEqual([
+      ['Michelle', 'Allie'],
+      ['Jennifer'],
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+    ]);
+    expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
+    expect(unenrollBrook([])).toStrictEqual([]);
+  });
+});
+
+describe('Testing challenge 9', () => {
+  test('It should sort events by the day on which they happen', () => {
+    const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
+    const sortedEvents = sortByDay(events);
+    expect(sortedEvents[0]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7']));
+    expect(sortedEvents[1]).toEqual(expect.arrayContaining(['Dancing on Mondays and Tuesdays', 'in the club on a Tuesday']));
+    expect(sortedEvents[2]).toStrictEqual([]);
+    expect(sortedEvents[3]).toStrictEqual(['Thursday Night Code']);
+    expect(sortedEvents[4]).toStrictEqual([]);
+    expect(sortedEvents[5]).toStrictEqual(['Saturday Night Fever']);
+    expect(sortedEvents[6]).toStrictEqual([]);
+
+    const events2 = ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thursday'];
+    const sortedEvents2 = sortByDay(events2);
+    expect(sortedEvents2[0]).toStrictEqual(['Monday']);
+    expect(sortedEvents2[1]).toEqual(expect.arrayContaining(['Tuesday', 'Tuesday 2']));
+    expect(sortedEvents2[2]).toStrictEqual(['Wednesday and Thursday']);
+    expect(sortedEvents2[3]).toEqual(expect.arrayContaining(['Wednesday and Thursday', 'Thursday']));
+    expect(sortedEvents2[4]).toStrictEqual([]);
+    expect(sortedEvents2[5]).toStrictEqual([]);
+    expect(sortedEvents2[6]).toStrictEqual([]);
+  });
+});
+
+describe('Testing challenge 10', () => {
+  test('It should return the ith character of the ith string', () => {
+    const words = ['apple', 'banana', 'cantaloupe'];
+
+    expect(characterByIndex(words)).toStrictEqual(['a', 'a', 'n']);
+    expect(characterByIndex(['abc', 'def', 'ghi'])).toStrictEqual(['a', 'e', 'i']);
+    expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
   });
 });
