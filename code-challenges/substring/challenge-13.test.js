@@ -146,7 +146,16 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (arr) => {
-  // Solution code here...
+  return daysOfWeek.map(day => {
+    const innerDayArray = [];
+    arr.forEach(el => {
+      if (el.includes(day)) {
+        innerDayArray.push(el)
+      }
+    })
+    return innerDayArray;
+  })
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,7 +167,7 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  return arr.map((word, idx) =>  word.charAt(idx));
 };
 
 /* ------------------------------------------------------------------------------------------------
