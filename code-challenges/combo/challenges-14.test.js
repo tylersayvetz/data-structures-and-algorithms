@@ -1,5 +1,5 @@
 'use strict';
-
+//hi
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -21,7 +21,7 @@ The names should be combined into a single string with each character name separ
 
 For example, "Lando Calrisian - Boba Fett - Princess Amidala".
 ------------------------------------------------------------------------------------------------ */
-
+//really?
 let starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
@@ -84,10 +84,17 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  arr.sort((a,b) => a.name === 'Luke Skywalker' ? 1 : -1).filter(el => )
-  })
-  }
-};
+  let target = arr.find(person => person.name === 'Luke Skywalker');
+  if (!target) return '';
+  target = parseInt(target.mass);
+  return arr.filter(person => {
+    return parseInt(person.mass) > target
+  }).map(person => person.name).join(' - ');
+}
+
+/*
+I was way up. just now. 
+*/
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -95,8 +102,8 @@ Write a function named sortBy that takes in an array of objects, each of which h
 
 Here is an example of the input:
 [
-  {name: 'Sweatshirt', price: 45},
-  {name: 'Bookmark', price: 2.50},
+  {name: 'Sweatshirt', price: 45, property: ?},
+  {name: 'Bookmark', price: 2.50, property: ?},
   {name: 'Tote bag', price: 15}
 ];
 
@@ -104,7 +111,7 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return arr.sort((a,b) => a[property] < b[property] ? -1 : 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +127,7 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-// Solution code here...
+  return /^https:\/\//.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,7 +150,10 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  const winConditions = [0b100100100, 0b010010010, 0b001001001, 0b111000000, 0b000111000, 0b000000111, 0b100010001, 0b001010100];
+  let arr = board.reduce((acc, el) => [...acc, ...el] , []);
+  const results = ['X', 'O'].map(char => parseInt(arr.map(el => el === char ? 1 : 0).join(''), 2))
+  return !!results.map(result => !!winConditions.find(condition => (condition & result) === condition)).find(result => result)
 };
 
 /* ------------------------------------------------------------------------------------------------
