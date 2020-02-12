@@ -3,3 +3,4 @@
 
 ## 401
 - challenges 01, array-reverse
+- challenges 02, array-shift
