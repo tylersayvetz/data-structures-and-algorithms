@@ -2,7 +2,7 @@
 function insertShiftArray(arr, rabbit) {
   //make a new array one longer than the original..
   let newArr = new Array(arr.length + 1);
-
+  
   //determine the insert spot...
   let insertSpot = Math.floor(arr.length / 2);
 
