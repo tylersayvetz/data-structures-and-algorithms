@@ -1,7 +1,7 @@
 
 
 class LinkedList {
-  constructor(head = 'No Value') {
+  constructor(head = null) {
     this.head = new Node(head, null);
   }
 
