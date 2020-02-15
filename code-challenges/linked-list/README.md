@@ -20,6 +20,11 @@ See my implementation of reverse.
 
 Testing included 6 tests, which effectively test the entire functionality of the two classes. 
 
+Replicate my tests by:
+
+`npm i`
+`npm test linked-list.test.js`
+
 `LinkedList.reverse()`
 
 reverses the Linked List: O(n)
