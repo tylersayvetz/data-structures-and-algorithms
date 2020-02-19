@@ -102,7 +102,4 @@ target: the value of the node after which to insert the new node.
 
 newVal: the value that will be contained in the new node to be inserted.
 
-
--output
-
-none;
+![df](assets/ll-insertions.jpeg)
