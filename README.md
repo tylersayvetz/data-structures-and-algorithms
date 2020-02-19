@@ -1,7 +1,7 @@
 # data-structures-and-algorithms
 
 ## Images
-Images are located in the \_assets directory and share their file name with the code to which they are relevant.
+Images are located in each folder's `assets` directory and share their name with the assignment and branch on which they were created.
 
 
 ## 401
