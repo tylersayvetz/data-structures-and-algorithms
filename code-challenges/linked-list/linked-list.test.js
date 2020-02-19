@@ -52,13 +52,13 @@ class LinkedList {
 
     //iterate k times (or to the end)
     let current = this.head;
-    while(current.next && k > 0) {
+    while (current.next && k > 0) {
       current = current.next;
       k--;
     }
 
     //if we iterated k times, return the resultant value.
-    if (k === 0 ) {
+    if (k === 0) {
       this.reverse();
       return current.value;
     }
@@ -135,10 +135,8 @@ class LinkedList {
       return 'exception';
     }
   }
+
 }
-
-
-
 
 class Node {
   constructor(value, next) {
@@ -148,19 +146,62 @@ class Node {
 }
 
 // instantiate the list and add a head.
-const myList = new LinkedList('H');
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
 
+const listA = new LinkedList('H');
+const listB = new LinkedList('H');
 
-// //live testing.
-// for (let i = 0; i < 10; i++) {
-//   myList.append(i);
-// }
+for (let i = 0; i < 6; i++) {
+  listA.append(i);
+  listB.append(letters[i % letters.length])
+}
+// listA.append('6')
 
-// console.log(myList.kthFromEnd(2));
+listA.toString();
+listB.toString();
 
+const myList = zipLL(listA, listB);
+myList.toString();
 
-// myList.toString();
+function zipLL(listA, listB) {
+  let currA = listA.head;
+  let currB = listB.head;
 
+  //todo: this can be dried out, but it makes it nearly unreadable. 
+  while (currA.next || currB.next) {
+    //if both lists have more length on them
+    if (currA.next && currB.next) {
+      //store the next's
+      let origA, origB;
+      origA = currA.next;
+      origB = currB.next; 
+
+      //perform the zip
+      currA.next = currB.next;
+      currB.next = currA;
+
+      //traverse one up
+      currA = origA;
+      currB = origB;
+      //a is shorter
+    } else if (!currA.next) {
+      console.log('A ran out', currA, currB)
+      currA.next = currB.next;
+      currB.next = currA;
+      break;
+      //b is shorter
+    } else if (!currB.next) {
+      console.log('B Ran out', currA, currB)
+      currB.next = currA;
+      break;
+    }
+  }
+  //both same length
+  if (!currA.next && !currB.next) {
+    currB.next = currA;
+  }
+  return listB
+}
 
 
 
@@ -286,6 +327,12 @@ describe('The kthFromEnd() function should return the Kth value from the end of 
       myList.append(i);
     }
     expect(myList.kthFromEnd(-1)).toEqual('exception');
+  })
+
+  describe('Test zipLL()', () => {
+    it('should zip together two lists of unequal length', () => {
+
+    })
   })
 })
 

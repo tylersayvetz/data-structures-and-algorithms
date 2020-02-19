@@ -115,5 +115,15 @@ k: the number of spaces from the end from which to pull the return value.
 
 the value of the node at that space.
 
+`zipLL(listA, listB)`
+
+- input: two linked lists to be 'zipped' together.
+
+- output: a single linked list that is the result of the two previous linked lists being zipped. 
+
+- behavior: if one list is shorter than the other, the resulting list will still contain the rest of the tail of the longer list.
+
+
+
 ![df](assets/ll-insertions.jpeg)
 ![](assets/ll-kth-from-end.jpeg)
