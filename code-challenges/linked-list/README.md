@@ -5,20 +5,20 @@ Background: A linked list is a type of data structure. Im not sure what it would
 
 ## Challenge
 <!-- Description of the challenge -->
-The challenge was to implement our hello world of linked lists. Create a node class and a List class and be able to instantiate a linked list. Make prototype functionality for inserting at the beginning, appending to the end, and finding (returns boolean). 
+The challenge was to implement our hello world of linked lists. Create a node class and a List class and be able to instantiate a linked list. Make prototype functionality for inserting at the beginning, appending to the end, and finding (returns boolean). Additional functionality is ongoing. See below "API" section.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 All of the functions in the Linked list class are O(n) time-complexity, with one exeption. 'Insert' is O(1) expensive. SO that's cool. If you have a log of nodes to stick on to the end of a linked list, it is much more efficient to reverse your list, INSERT (instead of append) all of the nodes, and then reverse it back. 
 
-See my implementation of reverse. 
 
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->
 
-Testing included 6 tests, which effectively test the entire functionality of the two classes. 
+Testing included 8 tests, which effectively test the entire functionality of the two classes. The tests are fairly dense, especially for the insertBefore / after functions. A single test was sufficient to determine behavior for both invalid and valid inputs. More testing is always better... but this is functional!
+
 
 Replicate my tests by:
 
@@ -80,3 +80,29 @@ none
 - output
 
 {headVal}->{val1}-> ... etc.
+
+`LinkedList.insertBefore(target, newVal)`
+
+- input
+
+target: the value of the node before which to insert the new node. 
+
+newVal: the value that will be contained in the new node to be inserted.
+
+
+-output
+
+none;
+
+`LinkedList.insertAfter(target, newVal)`
+
+- input
+
+target: the value of the node after which to insert the new node. 
+
+newVal: the value that will be contained in the new node to be inserted.
+
+
+-output
+
+none;
