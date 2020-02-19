@@ -1,0 +1,14 @@
+{
+  "name": "linked-list",
+  "version": "1.0.0",
+  "description": "<!-- Short summary or background information --> So ya. Singly linked lists are fun to work with!  Background: A linked list is a type of data structure. Im not sure what it would be good for yet, but they seem to be fairly flexible. Large tradeoff with computational expense though. Much to be learned!",
+  "main": "linked-list.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.1.0"
+  }
+}
