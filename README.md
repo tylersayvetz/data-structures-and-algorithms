@@ -10,5 +10,5 @@ Images are located in each folder's `assets` directory and share their name with
 - challenges 03, 
 - challenges 04,
 - challenges 06, ll-insertions
-- challenges 06, ll-kth-from-end
+- challenges 07, ll-kth-from-end
 
