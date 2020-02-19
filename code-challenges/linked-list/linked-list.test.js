@@ -145,23 +145,23 @@ class Node {
   }
 }
 
-// instantiate the list and add a head.
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
+// // instantiate the list and add a head.
+// const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
 
-const listA = new LinkedList('H');
-const listB = new LinkedList('H');
+// const listA = new LinkedList('H');
+// const listB = new LinkedList('H');
 
-for (let i = 0; i < 6; i++) {
-  listA.append(i);
-  listB.append(letters[i % letters.length])
-}
-// listA.append('6')
+// for (let i = 0; i < 6; i++) {
+//   listA.append(i);
+//   listB.append(letters[i % letters.length])
+// }
+// // listA.append('6')
 
-listA.toString();
-listB.toString();
+// listA.toString();
+// listB.toString();
 
-const myList = zipLL(listA, listB);
-myList.toString();
+// const myList = zipLL(listA, listB);
+// myList.toString();
 
 function zipLL(listA, listB) {
   let currA = listA.head;
@@ -174,7 +174,7 @@ function zipLL(listA, listB) {
       //store the next's
       let origA, origB;
       origA = currA.next;
-      origB = currB.next; 
+      origB = currB.next;
 
       //perform the zip
       currA.next = currB.next;
@@ -185,13 +185,13 @@ function zipLL(listA, listB) {
       currB = origB;
       //a is shorter
     } else if (!currA.next) {
-      console.log('A ran out', currA, currB)
+      console.log('A ran out')
       currA.next = currB.next;
       currB.next = currA;
       break;
       //b is shorter
     } else if (!currB.next) {
-      console.log('B Ran out', currA, currB)
+      console.log('B Ran out')
       currB.next = currA;
       break;
     }
@@ -330,8 +330,46 @@ describe('The kthFromEnd() function should return the Kth value from the end of 
   })
 
   describe('Test zipLL()', () => {
-    it('should zip together two lists of unequal length', () => {
 
+
+    it('should zip together two lists of equal length', () => {
+      const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
+
+      const listA = new LinkedList('H');
+      const listB = new LinkedList('H');
+
+      for (let i = 0; i < 6; i++) {
+        listA.append(i);
+        listB.append(letters[i % letters.length])
+      }
+      const myList = zipLL(listA, listB);
+      myList.toString();
+      expect(console.log).toHaveBeenCalledWith('{H}->{H}->{a}->{0}->{b}->{1}->{c}->{2}->{d}->{3}->{e}->{4}->{f}->{5}->null');
+    })
+
+    it('should zip togetherto lsits of UNequal length', () => {
+      const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
+
+      const listA = new LinkedList('H');
+      const listB = new LinkedList('H');
+
+      for (let i = 0; i < 6; i++) {
+        listA.append(i);
+        listB.append(letters[i % letters.length])
+      }
+      listA.append(6)
+      const myList = zipLL(listA, listB);
+      myList.toString();
+      expect(console.log).toHaveBeenCalledWith('{H}->{H}->{a}->{0}->{b}->{1}->{c}->{2}->{d}->{3}->{e}->{4}->{f}->{5}->{6}->null')
+    })
+
+    it('should zip together two empty lists', () => {
+      const listC = new LinkedList();
+      const listD = new LinkedList();
+
+      const myList = zipLL(listC, listD);
+      myList.toString();
+      expect(console.log).toHaveBeenCalledWith('{null}->{null}->null')
     })
   })
 })
