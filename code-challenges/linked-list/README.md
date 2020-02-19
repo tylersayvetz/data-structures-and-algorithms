@@ -10,7 +10,10 @@ The challenge was to implement our hello world of linked lists. Create a node cl
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-All of the functions in the Linked list class are O(n) time-complexity, with one exeption. 'Insert' is O(1) expensive. SO that's cool. If you have a log of nodes to stick on to the end of a linked list, it is much more efficient to reverse your list, INSERT (instead of append) all of the nodes, and then reverse it back. 
+All of the functions in the Linked list class are O(n) time-complexity, with two exeptions. 'Insert' is O(1) expensive and kthFromEnd() is 3 * O(n). SO that's cool. If you have a log of nodes to stick on to the end of a linked list, it is much more efficient to reverse your list, INSERT (instead of append) all of the nodes, and then reverse it back. 
+
+The kthFromEnd function approaches the problem of not being able to traverse a LL in reverse by reverseing the LL, traversing it forwards, and then reverseing it back. 
+
 
 
 
@@ -102,4 +105,15 @@ target: the value of the node after which to insert the new node.
 
 newVal: the value that will be contained in the new node to be inserted.
 
+`LinkedList.kthFromEnd(k)`
+
+- input: 
+
+k: the number of spaces from the end from which to pull the return value.
+
+- output: 
+
+the value of the node at that space.
+
 ![df](assets/ll-insertions.jpeg)
+![](assets/ll-kth-from-end.jpeg)

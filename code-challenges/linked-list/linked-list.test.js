@@ -5,7 +5,6 @@ class LinkedList {
     this.head = new Node(head, null);
   }
 
-
   //insert a node at the beginning of the list O(1)
   insert(value) {
     const newHead = new Node(value, this.head)
@@ -42,10 +41,35 @@ class LinkedList {
       current = current.next;
       output += `{${current.value}}->`;
     }
-
     console.log(output + 'null');
   }
 
+  kthFromEnd(k) { //what is this??? this is in worst case O(n) * 3.
+    if (k < 0) return 'exception';
+
+    //reverse the LL
+    this.reverse();
+
+    //iterate k times (or to the end)
+    let current = this.head;
+    while(current.next && k > 0) {
+      current = current.next;
+      k--;
+    }
+
+    //if we iterated k times, return the resultant value.
+    if (k === 0 ) {
+      this.reverse();
+      return current.value;
+    }
+    //if the above failed, we must be at the end, meaning k > LL.length
+    else if (!current.next) {
+      return 'exception'
+    }
+
+    //reverse the LL back to normal.
+    this.reverse();
+  }
 
   reverse() {
     //get to the end, carrying with you the previous node and a next node.. O(n) + 1
@@ -64,6 +88,7 @@ class LinkedList {
     this.head = current;
   }
 
+  //this is O(n)
   insertBefore(target, newVal) {
     if (target) {
       let current = this.head;
@@ -86,11 +111,10 @@ class LinkedList {
       //were at the target
       const node = new Node(newVal, current.next);
       current.next = node;
-    } else {
-      return 'exception';
-    }
+    } else return 'exception';
   }
 
+  //this is O(n)
   insertAfter(target, newVal) {
     if (target) {
       let current = this.head;
@@ -127,14 +151,15 @@ class Node {
 const myList = new LinkedList('H');
 
 
+// //live testing.
+// for (let i = 0; i < 10; i++) {
+//   myList.append(i);
+// }
 
-for (let i = 0; i < 20; i++) {
-  myList.insert(i);
-}
+// console.log(myList.kthFromEnd(2));
 
-myList.reverse();
-myList.insertAfter(19, 'rabbit')
-myList.toString();
+
+// myList.toString();
 
 
 
@@ -223,6 +248,44 @@ describe('test InsertAfter() function', () => {
     jest.spyOn(global.console, 'log');
     expect(console.log).toHaveBeenCalledWith('{H}->{hi}->{0}->{1}->{2}->{hi}->null');
     expect(myList.insertAfter('A', 'hi')).toEqual('exception');
+  })
+})
+
+describe('The kthFromEnd() function should return the Kth value from the end of the list', () => {
+  it('it should return happy trail value', () => {
+    const myList = new LinkedList('H');
+    for (let i = 0; i < 30; i++) {
+      myList.append(i);
+    }
+    expect(myList.kthFromEnd(10)).toEqual(19);
+  })
+  it('it should deal with a value that is greater than the length of the list.', () => {
+    const myList = new LinkedList('H');
+    for (let i = 0; i < 30; i++) {
+      myList.append(i);
+    }
+    expect(myList.kthFromEnd(600)).toEqual('exception');
+  })
+  it('it should return the head if the k is equal to the LL length', () => {
+    const myList = new LinkedList('H');
+    for (let i = 0; i < 30; i++) {
+      myList.append(i);
+    }
+    expect(myList.kthFromEnd(30)).toEqual('H');
+  })
+  it('should return the value on the end of the tail if 0 is passed', () => {
+    const myList = new LinkedList('H');
+    for (let i = 0; i < 30; i++) {
+      myList.append(i);
+    }
+    expect(myList.kthFromEnd(0)).toEqual(29);
+  })
+  it('should reject invalid input for k', () => {
+    const myList = new LinkedList('H');
+    for (let i = 0; i < 30; i++) {
+      myList.append(i);
+    }
+    expect(myList.kthFromEnd(-1)).toEqual('exception');
   })
 })
 
