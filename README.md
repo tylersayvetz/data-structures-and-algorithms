@@ -12,4 +12,7 @@ Images are located in each folder's `assets` directory and share their name with
 - challenges 06, ll-insertions
 - challenges 07, ll-kth-from-end
 - challenges 08, ll-merge
+- challenges 09
+- challenges 10, 
+- challenges 11, queue-with-stacks
 
