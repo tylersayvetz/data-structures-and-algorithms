@@ -10,7 +10,7 @@ Images are located in each folder's `assets` directory and share their name with
 - challenges 03
 - challenges 04, 
 - [challenges 06, ll-insertions](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/linked-list)
-- [challenges 07, ll-kth-from-end](#https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/linked-list)
+- [challenges 07, ll-kth-from-end](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/linked-list)
 - [challenges 08, ll-merge](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/linked-list)
 - challenges 09, 
 - challenges 10, 
