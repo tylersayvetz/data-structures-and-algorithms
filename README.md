@@ -1,4 +1,4 @@
-# data-structures-and-algorithms
+# Data Structures and Algorithms
 
 ## Images
 Images are located in each folder's `assets` directory and share their name with the assignment and branch on which they were created. Follow the links below to go to an exercise's folder.
