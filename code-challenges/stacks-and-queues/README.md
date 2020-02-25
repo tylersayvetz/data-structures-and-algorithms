@@ -11,11 +11,11 @@ Create prototype methods for the two different types of data storage, which allo
 Singly linked lists seemed appropriate for this challenge. 
 
 ### Stack
-For Stack, `push()` instantiates a new node and assigns `top` to that node. pop is the opposite. It just reassigns `top` to the next node in the stack.
+For Stack, `push()` instantiates a new node and assigns `top` to that node. `pop()` is the opposite. It just reassigns `top` to the next node in the stack.
 
 ### Queue
-`enqueue` traverses down the list with a while loop and sticks the new Node at the end.
-`dequeue` performs the same task as `stack.pop()`.
+`enqueue()` traverses down the list with a while loop and sticks the new Node at the end.
+`dequeue()` performs the same task as `stack.pop()`.
 
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
