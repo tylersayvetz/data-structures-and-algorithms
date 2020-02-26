@@ -16,4 +16,4 @@ Images are located in each folder's `assets` directory and share their name with
 - challenges 10, 
 - [challenges 11, queue-with-stacks](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/queue-with-stacks)
 - [challenges 11b, stacks-and-queues](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/stack-and-queue)
-
+- [challenges 12, fifo-animal-shelter](https://github.com/tylersayvetz/data-structures-and-algorithms/tree/master/code-challenges/fifo-animal-shelter)
