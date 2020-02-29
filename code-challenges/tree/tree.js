@@ -83,21 +83,36 @@ class BinaryTree {
     }
     return found;
   }
-}
-// const myTree = new BinaryTree(new Node(10, new Node(9), new Node(20, new Node(15, new Node(12), new Node(17)))));
-// const myTree = new BinaryTree();
 
-// myTree.add(1)
-// myTree.add(8)
-// myTree.add(30);
-// myTree.add(333);
-// myTree.add(-4);
+  breadth() {
+    const queue = [];
+    
+  }
+}
+
+function makeArrayOfNums(min, max, n) {
+  const returnArr = [];
+  while (n > 0) {
+    const random = Math.floor(Math.random() * (max - min)) + min;
+    returnArr.push(random);
+    n--;
+  }
+  return returnArr;
+}
+/////////////
+
+// const myTree = new BinaryTree(new Node(10, new Node(9), new Node(20, new Node(15, new Node(12), new Node(17)))));
+const myTree = new BinaryTree();
+
+
+const data = [ 19, 6, 9, 12, 15, 16, 22, 23, 26 ];
+data.forEach(num => myTree.add(num));
 
 // console.log(myTree.preOrder());
-// console.log(myTree.inOrder());
+console.log(myTree.inOrder());
 // console.log(myTree.postOrder());
 
-// console.log(myTree.contains(30))
+console.log(myTree.contains(15))
 
 module.exports = {
   BinaryTree, Node
