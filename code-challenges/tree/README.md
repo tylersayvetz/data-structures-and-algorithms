@@ -46,3 +46,6 @@ adds node in proper position on tree.
 - `includes(value: number): boolean`
 
 returns boolean based on the presence of the value you pass.
+
+
+![](assets/tree.jpeg)
