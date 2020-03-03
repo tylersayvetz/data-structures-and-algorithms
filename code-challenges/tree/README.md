@@ -1,4 +1,4 @@
-# Trees
+# Trees && FizzBuzzTrees
 <!-- Short summary or background information -->
 
 
@@ -20,7 +20,12 @@ For time, all methods are at worst case O(n) time. None are N**2. At best case (
 For space, the traversal methods all have O(n) complexity. This is because I build an output array that is exaclty as long as N nodes. 
 
 
+## FizzBuzz files
 
+### API 
+`fizzify ` takes a numerical value and returns 'fizz' 'buzz' or 'Fizzbuzz', depending on if it dvisible by 3, 5, and both3 && 5, respectively. 
+
+`fizzBuzzTree` takes in a binary tree root and returns a copy of the tree, with fizz and buzz replaced in the proper spots, according to fizzify. 
 
 
 
