@@ -43,26 +43,39 @@ class BinaryTree {
 
 }
 
+//outside function that takes in a tree and returns a duplicate tree
 function fizzBuzzTree(tree) {
+  if (!tree.root) { return new BinaryTree(); }
+  
   const newRootValue = fizzify(tree.root.value)
   const newTree = new BinaryTree(new Node(newRootValue))
-  
-  duplicateTree(tree.root, newTree.root)
-
-  //traverse both trees at once, attaching more nodes to our new tree as we go.
-  function duplicateTree(currA, currB) {
-    if (!currA) return 
-    if (currA.left) {
-      currB.left = new Node(fizzify(currA.left.value));
-      duplicateTree(currA.left, currB.left)
-    }
-    if (currA.right) {
-      currB.right = new Node(fizzify(currA.right.value));
-      duplicateTree(currA.right, currB.right)
-    }
-  }
+  fizzBuzzTree_helper(tree.root, newTree.root)
 
   return newTree;
+}
+
+function fizzBuzzTree_helper(currA, currB) {
+  if (!currA) return
+  currB.value = fizzify(currA.value);
+  if (currA.left) {
+    currB.left = new Node();
+    fizzBuzzTree_helper(currA.left, currB.left)
+  }
+  if (currA.right) {
+    currB.right = new Node();
+    fizzBuzzTree_helper(currA.right, currB.right)
+  }
+}
+
+function betterFizzBuzzTree(node) {
+  if (node === null) { return null }
+  else {
+    const newNode = new Node(fizzify(node.value))
+    newNode.left = betterFizzBuzzTree(node.left)
+    console.log(newNode.value);
+    newNode.right = betterFizzBuzzTree(node.right)
+    return newNode;
+  }
 }
 
 function fizzify(value) {
@@ -84,16 +97,21 @@ function makeArrayOfNums(min, max, n) {
   return returnArr;
 }
 
+
+
+
+
+
 const myTree = new BinaryTree();
-const data = makeArrayOfNums(0, 20, 8)
+const data = makeArrayOfNums(-20, 20, 8)
 for (let i = 0; i < data.length; i++) {
   myTree.add(data[i])
 }
 
 //log out my tree
-console.log( myTree.inOrder());
+console.log(myTree.inOrder());
 
-//make new fizz tree
+//make new fizz tree, log it out.
 const myNewTree = fizzBuzzTree(myTree);
 console.log(myNewTree.inOrder());
 
