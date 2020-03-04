@@ -54,3 +54,4 @@ returns boolean based on the presence of the value you pass.
 
 
 ![](assets/tree.jpeg)
+![](assets/find-max-in-tree.jpeg)
