@@ -27,7 +27,7 @@ class BinaryTree {
   inOrder(current = this.root, output = []) {
     if (!current) return output;
     if (current.left) this.inOrder(current.left, output)
-    output.push(current.value)
+    output.unshift(current.value)
     if (current.right) this.inOrder(current.right, output)
     return output
 
@@ -83,22 +83,143 @@ class BinaryTree {
     }
     return found;
   }
+
+
+  printTree() {
+    const queue = [this.root];
+    let current;
+    let i = 0;
+    let str = ''
+    while (queue.length && queue.length < 100) {
+      i++
+      if (Math.log2(i) % 1 === 0) {
+        console.log(str);
+        str = '';
+      }
+      current = queue.shift()
+      if (current === null) {
+        str += ' '
+        queue.push(null, null)
+      }
+
+      else {
+        str += ` ${current.value} `
+        // if (!(current.left === null && current.right === null)) {
+        current.left ? queue.push(current.left) : queue.push(null)
+        current.right ? queue.push(current.right) : queue.push(null)
+        // }
+      }
+    }
+    console.log(str)
+
+
+
+  }
+
+  isSorted(sorted = true, current = this.root, output = null) {
+    if (!sorted || !current) return false;;
+    //1
+    if (current.left) sorted = this.isSorted(sorted, current.left, output)
+    //2
+    if (current.value <= output) {
+      sorted = false;
+    }
+    //3. 
+    output = current.value
+
+    //4
+    if (current.right) sorted = this.isSorted(sorted, current.right, output)
+
+    //5.
+    return false
+  }
+
+  fizzBuzz(current = this.root, output = []) {
+    if (!current) return output;
+    if (current.value % 3 === 0 && current.value % 5 === 0) current.value = 'fizzbuzz'
+    else if (current.value % 3 === 0) current.value = 'fizz'
+    else if (current.value % 5 === 0) current.value = 'buzz'
+    if (current.left) this.fizzBuzz(current.left, output)
+    output.unshift(current.value)
+    if (current.right) this.fizzBuzz(current.right, output)
+    return output
+
+  }
 }
-// const myTree = new BinaryTree(new Node(10, new Node(9), new Node(20, new Node(15, new Node(12), new Node(17)))));
+
+function treeScaffold(arr) {
+  let depth = 5;
+  for (let row = 0; row < depth; row++) {
+    let str = '';
+    for (let j = 0; j < 2 ** row; j++) {
+      for (let i = 0; i < Math.floor((2 ** depth / 2 ** row)); i++) {
+        str += '-';
+      }
+      str += 'e'
+    }
+    console.log(str)
+  }
+}
+
+
+function makeArrayOfNums(min, max, n) {
+  const returnArr = [];
+  while (n > 0) {
+    const random = Math.floor(Math.random() * (max - min)) + min;
+    returnArr.push(random);
+    n--;
+  }
+  return returnArr;
+}
+
+
+function treeInOrder(tree) {
+  const array = tree.inOrder();
+  array.reduce((acc, el, i) => {
+    if (!acc) return acc;
+    if (el > array[i + 1]) { acc = false }
+    return acc
+  }, true)
+}
+
+
+/////////////
+
+// const myTree = new BinaryTree(new Node(10, new Node(500, null, new Node(9.9)), new Node(20, new Node(15, new Node(12), new Node(17)))));
 // const myTree = new BinaryTree();
 
-// myTree.add(1)
-// myTree.add(8)
-// myTree.add(30);
-// myTree.add(333);
-// myTree.add(-4);
+
+// const data = makeArrayOfNums(0, 300, 10)
+// const data = [5, 3, 10, 6, 12, 8, 20]
+// data.forEach(num => myTree.add(num));
+// myTree.root.left.value = 500;
 
 // console.log(myTree.preOrder());
 // console.log(myTree.inOrder());
 // console.log(myTree.postOrder());
+// console.log(myTree.fizzBuzz())
+// myTree.printTree();
 
-// console.log(myTree.contains(30))
+
+
+// console.log(myTree.isSorted());
+
+// console.log(myTree.contains(15))
+
+// treeScaffold([]);
 
 module.exports = {
-  BinaryTree, Node
+  BinaryTree, Node, makeArrayOfNums
 }
+
+
+
+
+
+
+
+
+
+
+
+
