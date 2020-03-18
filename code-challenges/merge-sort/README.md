@@ -185,10 +185,7 @@ function mergeSort(arr) {
 - Then `merge()` will execute with the two child arrays that are each (2) elements long. 
 - The same mechanics will apply and we will have a sorted array. Yay us.
 
-
-
-
-
+![](merge-sort.jpeg)
 
 
 
