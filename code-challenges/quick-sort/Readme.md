@@ -110,10 +110,3 @@ All that is left to do is swap the pivot value with the `pIndex` value and retur
 #### Parting note.
 
 Since the call to the paritition function is inside a recursively called function (`quickSort`), the "array section" I am referring to will relate to the position on the call stack. The farther up the call stack, the smaller the section of the array we will be examining. At the top of the call stack all of the array sections will only be one element, and the `if()` condition at the top of the function will initiate the "base case" and stop the recursion.
-
-
-
-
-
-  
-
