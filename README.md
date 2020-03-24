@@ -32,5 +32,5 @@ Images are located in each folder's `assets` directory and share their name with
 - [challenges 27, merge-sort](https://github.com/tylersayvetz/data-structures-and-algorithms/pull/33)
 
 - [challenges 28, quick-sort](https://github.com/tylersayvetz/data-structures-and-algorithms/pull/38)
-
+- [challenges 30, hash-table](https://github.com/tylersayvetz/data-structures-and-algorithms/pull/39)
 
