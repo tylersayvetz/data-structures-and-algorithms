@@ -50,7 +50,7 @@ Note that the pivot is noted with *'s.
 
     for (let i = leftLimit; i < rightLimit; i++) {
       if (array[i] <= pivotValue) {
-        swap(array, i, pIndex);
+        if (i !== pIndex) swap(array, i, pIndex);
         pIndex++;
       }
     }
@@ -68,14 +68,14 @@ Note that the pivot is noted with *'s.
 
 - for each index of the array...
 
-1. if 8 is less than 15 .. increment `i` and `pIndex`, swap 8 with 8. 
-2. if 4 is less than 15 .. increment `i` and `pIndex`, swap 4 with 4. 
-3. if 23 is less than 15 .. nope .. increment `i` only.
-4. if 41 is less than 15 .. nope .. increment `i` only.
+1. if 8 is less than 15 .. but `i` === `pIndex`, so no swap. Increment both counters. 
+2. if 4 is less than 15 .. but `i` === `pIndex`, so no swap. Increment both counters.  
+3. if 23 is less than 15 .. nope .. so no swap. Increment `i` only.
+4. if 41 is less than 15 .. nope .. so no swap. Increment `i` only.
 
 Now we have a pointer pointing at 23 and one at 13.. watch closely here..
 
-5. if 13 is less than 15 .. yes! .. increment `i` and `pIndex`, swap **13 and 23** (`pIndex` got "stuck" on 23)
+5. if 13 is less than 15 .. yes! .. increment `i` and `pIndex`, `i !== pIndex`, so swap **13 and 23** (`pIndex` was "stuck" on 23)
 6. now `i` will no longer be less than `rightLimit` so the for() loop terminates.
 
   now we have: `[8,4,13,41,23,15]`
@@ -92,7 +92,7 @@ close..
 
   // for (let i = leftLimit; i < rightLimit; i++) {
   //   if (array[i] <= pivotValue) {
-  //     swap(array, i, pIndex);
+  //     if (i !== pIndex) swap(array, i, pIndex);
   //     pIndex++;
   //   }
   // }
