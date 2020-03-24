@@ -28,13 +28,13 @@ function partition(array, leftLimit, rightLimit) {
   for (let i = leftLimit; i < rightLimit; i++) {
 
     //!if the value at i is less than the pivot, swap the value at pIndex and the value at i.
-    // [8,4,23,41,13,15]   pivot is 15. 
+    // [8,4,13,41,13,15]   pivot is 15. 
     //so we would swap 8 with itself on the first iteration and increment both pindex and i.
     //on the third iteration we 23 is not less than 15, so only i is incremented. pindex wont be incremented until the 5th iteration.
     //on the fifth iteration 13 is less than 15, so 13 and 23 switch places. Both pindex and i are incremented. 
     // so now: [8,4,13,41,23,15]
     if (array[i] <= pivotValue) {
-      swap(array, i, pIndex);
+      if (i !== pIndex) swap(array, i, pIndex);
       pIndex++;
     }
   }
