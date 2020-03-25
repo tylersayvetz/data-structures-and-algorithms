@@ -30,3 +30,4 @@ This is done inside the guts of a pre-order DFS traversal of each binary tree.
 The second map will now contain all of the collisions. 
 
 
+![](tree-intersection.jpeg)
