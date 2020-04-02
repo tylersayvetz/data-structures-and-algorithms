@@ -98,3 +98,32 @@ export function BFS (node: GraphNode) {
   }
   return visited
 }
+
+//given an array of nodes
+//output a boolean that says whether or not each adjacent node in the array is also adjacent in the graph. 
+
+//input [a, b]
+//output [true, 10]
+
+//let possible = true
+//for each node in the input array - 1
+    //find an edge in its adges array that has the next node as the to: property. 
+    //set possible to false if it fails along the route. 
+
+export function possibleTrip(nodes: Array<GraphNode>): string | null {
+  if (nodes.length < 2) return null;
+  let possible = true;
+  let cost = 0;
+  for (let i = 0; i < nodes.length - 1; i++ ) {
+    if (possible === false) break;
+    const currentEdge = nodes[i].edges.find(edge => edge.to === nodes[i+1])
+    if (currentEdge) {
+      cost += currentEdge.weight;
+    } else {
+      possible = false;
+    }
+  }
+  return possible ? `True ${cost}` : `False 0`
+}
+
+// console.log(possibleTrip([a,c]));
