@@ -127,3 +127,8 @@ export function possibleTrip(nodes: Array<GraphNode>): string | null {
 }
 
 // console.log(possibleTrip([a,c]));
+
+
+function DFS(graph: Graph, root: GraphNode) {
+  
+}
