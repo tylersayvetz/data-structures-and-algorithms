@@ -130,7 +130,7 @@ export function possibleTrip(nodes: Array<GraphNode>): string | null {
 // console.log(possibleTrip([a,c]));
 
 
-function DFS(graph: Graph, root: GraphNode, visited: Set<GraphNode> = new Set()) {
+export function DFS(graph: Graph, root: GraphNode, visited: Set<GraphNode> = new Set()) {
   //set current and add it to visited
   let current: GraphNode = root;
   visited.add(current);
