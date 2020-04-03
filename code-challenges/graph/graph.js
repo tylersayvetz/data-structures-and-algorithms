@@ -43,12 +43,14 @@ const f = myGraph.addNode('f');
 //add edges
 myGraph.addEdge(10, a, b);
 myGraph.addEdge(4, b, c);
-myGraph.addEdge(4, b, d);
-myGraph.addEdge(6, c, d);
+// myGraph.addEdge(4, b, d)
+// myGraph.addEdge(6, c, d)
 myGraph.addEdge(7, c, e);
-myGraph.addEdge(3, d, e);
+// myGraph.addEdge(3, d, e)
+myGraph.addEdge(3, e, d);
 myGraph.addEdge(8, e, f);
-myGraph.addEdge(6, f, c);
+// myGraph.addEdge(6, f, c)
+myGraph.addEdge(6, c, f);
 console.log(myGraph.size());
 console.log(BFS(a));
 //perform a breadth first traversal of a graph. 
@@ -102,3 +104,19 @@ function possibleTrip(nodes) {
 }
 exports.possibleTrip = possibleTrip;
 // console.log(possibleTrip([a,c]));
+function DFS(graph, root, visited = new Set()) {
+    let current = root;
+    visited.add(current);
+    // while (current) {
+    console.log('**STACK FRAME**', 'current', current.value);
+    console.log('edges', current.edges);
+    console.log('visited', visited);
+    current.edges.forEach((edge) => {
+        if (!visited.has(edge.to)) {
+            DFS(graph, edge.to, visited);
+        }
+    });
+    // }
+    return visited;
+}
+console.log(DFS(myGraph, a));
