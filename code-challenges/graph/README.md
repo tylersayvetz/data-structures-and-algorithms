@@ -28,4 +28,29 @@ getNodes() and getNeighbors() both return copies of the data they are referencei
     size(): number --> returns the number of nodes in the graph.
 
 
-![diagram here..]()
+## BFS
+
+This section talks about a breadth first traversal of the graph. Since my graph is directional, onnly connections in the right direction will count as connections, as far as the traversal algoritm is concerned.
+
+### time complexity
+
+In the worst case, in a very complete graph, my BFS will be O(n^2). In the best case
+
+Calculating:
+
+        We are guaranteed to visit every node in the array. --> n
+        For every neighbor of every node, we will run an iteration of the for() loop in the center of the function --> n-1
+
+The result is `n * n-1` which simplifies to O(n^2)
+
+### Space complexity
+
+Space complexity is O(n). We create two data structures within the function, on is the Set of visited nodes, and one is the queue. The queue could be up to n size, so we will say 2n for overall size. 
+
+
+
+
+
+
+
+![diagram here..](graph2.jpeg)
