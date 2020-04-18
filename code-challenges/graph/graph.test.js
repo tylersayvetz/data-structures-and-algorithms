@@ -1,5 +1,5 @@
 const Graph = require('./graph.js');
-const { GraphNode, GraphEdge, BFS } = require('./graph.js');
+const { GraphNode, GraphEdge, BFS, possibleTrip } = require('./graph.js');
 
 //set up a graph
 let graph = new Graph.default();
@@ -89,8 +89,41 @@ describe('Graph', () => {
       let i = 0;
       result.forEach((key, value, set) => {
         expect(key.value).toEqual(assertion[i]);
-        i++
-      })
+        i++;
+      });
+    });
+  });
+
+  describe('possibleTrip', () => {
+    const a = graph.addNode('a');
+    const b = graph.addNode('b');
+    const c = graph.addNode('c');
+    const d = graph.addNode('d');
+    const e = graph.addNode('e');
+    const f = graph.addNode('f');
+
+    //add edges
+    graph.addEdge(10, a, b);
+    graph.addEdge(4, b, c);
+    graph.addEdge(4, b, d);
+    graph.addEdge(6, c, d);
+    graph.addEdge(7, c, e);
+    graph.addEdge(3, d, e);
+    graph.addEdge(8, e, f);
+    graph.addEdge(6, f, c);
+
+    it('returns the cost of a possible trip', () => {
+      expect(possibleTrip([a, b])).toEqual('True 10');
+      expect(possibleTrip([a, b, d, e, f, c, e])).toEqual('True 38');
+    });
+
+    it('returns false of a trip that isnt possible', () => {
+      expect(possibleTrip([a,c])).toEqual('False 0')
+      expect(possibleTrip([f,e])).toEqual('False 0')
+    })
+    it ('rejects an invalid trip', () => {
+      expect(possibleTrip([])).toEqual(null)
+      expect(possibleTrip([a])).toEqual(null)
     });
   });
 });
